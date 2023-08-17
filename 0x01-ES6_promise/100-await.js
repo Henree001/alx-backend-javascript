@@ -3,11 +3,11 @@ import { uploadPhoto, createUser } from '../utils';
 export default async function asyncUploadUser() {
   let arr;
   try {
-    const result = await Promise.all([uploadPhoto(),
-      createUser()]);
+    const photo = await uploadPhoto();
+    const user = await createUser();
     arr = {
-      photo: result[0],
-      user: result[1],
+      photo,
+      user,
     };
   } catch (err) {
     arr = {
