@@ -2,7 +2,7 @@ import readDatabase from '../utils';
 
 export default class StudentsController {
   static getAllStudents(req, res) {
-    readDatabase('./database.csv')
+    readDatabase(process.argv[2])
       .then((data) => {
         res.write('This is the list of our students\n');
         res.write(`Number of students in CS: ${data.CS.length}. List: ${data.CS.join(', ')}\n`);
@@ -21,7 +21,7 @@ export default class StudentsController {
       res.status(500);
       res.end('Major parameter must be CS or SWE');
     }
-    readDatabase('./database.csv')
+    readDatabase(process.argv[2])
       .then((data) => {
         res.send(`List: ${data[major].join(', ')}`);
       })
