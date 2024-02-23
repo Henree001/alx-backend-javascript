@@ -19,7 +19,6 @@ app.get('/students', (req, res) => {
     //   res.end();
     })
     .catch((error) => {
-      res.send('This is the list of our students\n');
       res.end(error.message);
     });
 });
