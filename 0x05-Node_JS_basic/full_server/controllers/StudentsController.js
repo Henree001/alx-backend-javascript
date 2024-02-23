@@ -5,7 +5,6 @@ export default class StudentsController {
     readDatabase('./database.csv')
       .then((data) => {
         res.write('This is the list of our students\n');
-        res.write(`Number of students: ${data.CS.length + data.SWE.length}\n`);
         res.write(`Number of students in CS: ${data.CS.length}. List: ${data.CS.join(', ')}\n`);
         res.write(`Number of students in SWE: ${data.SWE.length}. List: ${data.SWE.join(', ')}`);
         res.end();

@@ -17,6 +17,7 @@ app.get('/students', (req, res) => {
     })
     .catch((error) => {
       res.status(500);
+      res.write('This is the list of our students\n');
       res.end(error.message);
     });
 });
