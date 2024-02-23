@@ -1,4 +1,4 @@
-const http = require('node:http');
+const http = require('http');
 const countStudents = require('./3-read_file_async');
 
 const hostname = '127.0.0.1';
@@ -13,7 +13,7 @@ const app = http.createServer((req, res) => {
     countStudents(process.argv[2])
       .then((data) => {
         res.write('This is the list of our students\n');
-        res.write(`Number of students: ${Object.keys(data).length}\n`);
+        res.write(`Number of students: ${data.CS.length + data.SWE.length}\n`);
         res.write(`Number of students in CS: ${data.CS.length}. List: ${data.CS.join(', ')}\n`);
         res.write(`Number of students in SWE: ${data.SWE.length}. List: ${data.SWE.join(', ')}`);
         res.end();

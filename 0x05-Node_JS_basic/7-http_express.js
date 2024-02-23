@@ -11,7 +11,7 @@ app.get('/students', (req, res) => {
     .then((data) => {
     //   res.write('This is the list of our students\n');
       res.send(`This is the list of our students
-                Number of students: ${Object.keys(data).length}
+                Number of students: ${data.CS.length + data.SWE.length}
                 Number of students in CS: ${data.CS.length}. List: ${data.CS.join(', ')}
                 Number of students in SWE: ${data.SWE.length}. List: ${data.SWE.join(', ')}`);
     //   res.write(`Number of students in CS: ${data.CS.length}. List: ${data.CS.join(', ')}\n`);
